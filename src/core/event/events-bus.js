@@ -48,7 +48,7 @@ export default class EventsBus {
    * @param {String|Array} event
    * @param {Object=} context
    */
-  emit (event, context) {
+  emit (event, context, eventData) {
     if (isArray(event)) {
       for (let i = 0; i < event.length; i++) {
         this.emit(event[i], context)
@@ -64,7 +64,7 @@ export default class EventsBus {
 
     // Cycle through events queue, fire!
     this.events[event].forEach((item) => {
-      item(context || {})
+      item(context || {}, eventData)
     })
   }
 }

@@ -83,7 +83,7 @@ export default function (Glide, Components, Events) {
 
           Components.Html.root.classList.add(classes.dragging)
 
-          Events.emit('swipe.move')
+          Events.emit('swipe.move', null, swipe)
         } else {
           return false
         }
